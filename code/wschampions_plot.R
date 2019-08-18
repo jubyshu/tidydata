@@ -2,7 +2,6 @@ library(rvest)
 library(tidyverse)
 library(gganimate)
 library(ggimage)
-library(ggrepel)
 
 url <- "https://en.wikipedia.org/wiki/List_of_World_Series_champions"
 
@@ -57,21 +56,6 @@ teamlogo <- tibble(team_name = teams,
 champ <- champ %>% left_join(teamlogo, by = "team_name")
 
 # begin to plot
-ggplot(champ, aes(year, win_times)) + 
-  geom_image(aes(image = team_logo_svg), size = 0.03) + 
-  geom_vline(xintercept = 1903, color = "red", linetype = "dotted") + 
-  geom_vline(xintercept = 1904, color = "blue", linetype = "dashed") + 
-  geom_vline(xintercept = 1994, color = "blue", linetype = "dashed") + 
-  annotate("text", x = 1915, y = 10, label = "1903, First played", color = "#006284") + 
-  annotate("segment", x = 1903, xend = 1909, y = 8.5, yend = 10, color = "#006284") + 
-  annotate("text", x = 1916, y = 20, label = "1904, No world series", color = "#006284") + 
-  annotate("segment", x = 1904, xend = 1909, y = 18.5, yend = 20, color = "#006284") + 
-  annotate("text", x = 2006, y = 15, label = "1994, No world series", color = "#006284") + 
-  annotate("segment", x = 1994, xend = 1999, y = 13.5, yend = 15, color = "#006284") + 
-  hrbrthemes::theme_ipsum_rc() + 
-  labs(title = "MLB WS Champions", x = "", y = "Titles", 
-       caption = "Data: Wikipedia | Graphic: Juby")
-
 p <- ggplot(champ, aes(year, win_times)) + 
   geom_image(aes(image = team_logo_svg), size = 0.03) + 
   geom_vline(xintercept = 1903, color = "red", linetype = "dotted") + 
@@ -80,6 +64,14 @@ p <- ggplot(champ, aes(year, win_times)) +
   hrbrthemes::theme_ipsum_rc() + 
   labs(title = "MLB WS Champions", x = "", y = "Titles", 
        caption = "Data: Wikipedia | Graphic: Juby")
+
+p + annotate("text", x = 1915, y = 10, label = "1903, First played", color = "#006284") + 
+  annotate("segment", x = 1903, xend = 1909, y = 8.5, yend = 10, color = "#006284") + 
+  annotate("text", x = 1916, y = 20, label = "1904, No world series", color = "#006284") + 
+  annotate("segment", x = 1904, xend = 1909, y = 18.5, yend = 20, color = "#006284") + 
+  annotate("text", x = 2006, y = 15, label = "1994, No world series", color = "#006284") + 
+  annotate("segment", x = 1994, xend = 1999, y = 13.5, yend = 15, color = "#006284")
+
 p <- p + transition_reveal(year)
 
 animate(p, fps = 8, width = 2000, height = 1000)
