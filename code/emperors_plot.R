@@ -57,3 +57,4 @@ ggplot(emperors) +
        subtitle = "Lifespan (colored bars), duration of reign (white bars), death and their dynasty", 
        x = "", y = "Emperors") + 
   theme(legend.position = c(0.9, 0.2))
+  

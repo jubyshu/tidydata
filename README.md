@@ -2,4 +2,8 @@
 data visualization
 
 ## Roman Emperors
-![](https://github.com/jubyshu/tidydata/blob/master/plot/emperors.png)
+![](plot/emperors.png)
+
+## MLB World Series Champions
+![](plot/wschampions.png)
+![](plot/wschampions.gif)
