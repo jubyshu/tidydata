@@ -28,7 +28,8 @@ p <- ggplot() +
         legend.position = "none") + 
   transition_time(year) + 
   shadow_wake(wake_length = 0.05, alpha = 0.8) + 
+  # shadow_mark() + 
   ease_aes("elastic-in-out")
 
-animate(p, nframes = 120, fps = 8, width = 1920, height = 1080)
+animate(p, width = 1920, height = 1080)
 anim_save("../plot/nuclear_explosions.gif")
