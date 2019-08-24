@@ -10,3 +10,7 @@ data visualization
 
 ## Nuclear Explosions
 ![](plot/nuclear_explosions.gif)
+
+## Beatles Lyrics
+![](plot/beatles_lyrics_cloud.png)
+![](plot/beatles_lyrics_sentiment.png)

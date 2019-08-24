@@ -1,4 +1,3 @@
-library(genius)
 library(rvest)
 library(tidyverse)
 
@@ -13,8 +12,7 @@ record_songs <- bb_url %>%
 
 record_songs <- record_songs %>% 
   filter(song != "") %>% 
-  mutate(song = if_else(str_detect(song, "/"), paste0("Medley: ", song), song), 
-         song = if_else(str_detect(song, ", The$"), paste0("The ", gsub(", The$", "", song)), song))
+  mutate(song = if_else(str_detect(song, ", The$"), paste0("The ", gsub(", The$", "", song)), song))
 
 # write_csv(record_songs, "../data/beatles_record_songs.csv")
 
@@ -60,6 +58,3 @@ original_songs <- bind_rows(main_songs, other_songs) %>%
       TRUE ~ lead_vocal))
 
 # write_csv(original_songs, "../data/beatles_original_songs.csv")
-
-# get lyrics from genius.com
-map(original_songs$song, ~ genius_lyrics("The Beatles", ., "simple"))
