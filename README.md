@@ -14,3 +14,6 @@ data visualization
 ## Beatles Lyrics
 ![](plot/beatles_lyrics_cloud.png)
 ![](plot/beatles_lyrics_sentiment.png)
+
+## The Simpsons Guests
+![](plot/simpsons_guests.png)
