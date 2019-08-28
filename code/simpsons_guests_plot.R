@@ -1,7 +1,7 @@
 library(data.table)
 library(ggplot2)
 library(showtext)
-library(rvest)
+# library(rvest)
 
 # use google font
 font_add_google("Kalam", "Kalam")
