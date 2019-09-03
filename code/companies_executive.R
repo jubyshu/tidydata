@@ -100,4 +100,9 @@ setcolorder(final_data, col_names)
 
 final_data <- final_data[order(股票代码)]
 
+new_names <- c("stock_code", "company", "name", "institute", "duty", "gender", 
+               "born", "party", "graduate_college", "highest_degree", "title", 
+               "service_from", "service_to", "cv")
+setnames(exe, names(exe), new_names)
+
 # fwrite(final_data, "companies_executive.csv")
