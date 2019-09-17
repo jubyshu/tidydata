@@ -17,3 +17,6 @@ data visualization
 
 ## The Simpsons Guests
 ![](plot/simpsons_guests.png)
+
+## National Parks
+![](plot/national_parks.png)
