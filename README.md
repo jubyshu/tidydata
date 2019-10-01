@@ -20,3 +20,9 @@ data visualization
 
 ## National Parks
 ![](plot/national_parks.png)
+
+## School Diversity
+![](plot/school_diversity.png)
+
+## Pizza Party
+![](plot/pizza_party.png)
